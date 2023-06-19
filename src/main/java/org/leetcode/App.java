@@ -8,7 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        Solution002 solutions = new Solution002();
-        solutions.testCase1();
+        Solution003 solutions = new Solution003();
+        solutions.testCase2();
     }
 }
