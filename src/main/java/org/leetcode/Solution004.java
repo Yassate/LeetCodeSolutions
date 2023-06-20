@@ -4,21 +4,6 @@ import java.util.Arrays;
 
 public class Solution004 {
 
-    public void testCase1(){
-        double result = findMedianSortedArrays(new int[]{1,3}, new int[]{2});
-        System.out.println(result);
-    }
-
-    public void testCase2(){
-        double result = findMedianSortedArrays(new int[]{1,2}, new int[]{3,4});
-        System.out.println(result);
-    }
-
-    public void testCase3(){
-        double result = findMedianSortedArrays(new int[]{}, new int[]{1});
-        System.out.println(result);
-    }
-
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int maximum;
         if (nums1.length == 0) {

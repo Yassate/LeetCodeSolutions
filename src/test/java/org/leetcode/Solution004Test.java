@@ -1,29 +1,28 @@
 package org.leetcode;
 
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import java.util.stream.Stream;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.Assert.*;
 
 public class Solution004Test {
 
-    @Test
-    public void findMedianSortedArrays001() {
-        Solution004 solution = new Solution004();
-        double result = solution.findMedianSortedArrays(new int[]{1,3}, new int[]{2});
-        assertEquals(result, 2.0D, 0.01D);
+    private Solution004 solution = new Solution004();
+
+    private static Stream<Arguments> provideParameters() {
+        return Stream.of(
+                Arguments.of(new int[]{1,3}, new int[]{2}, 2.0),
+                Arguments.of(new int[]{1,2}, new int[]{3,4}, 2.5),
+                Arguments.of(new int[]{}, new int[]{1}, 1.0)
+        );
     }
 
-    @Test
-    public void findMedianSortedArrays002() {
-        Solution004 solution = new Solution004();
-        double result = solution.findMedianSortedArrays(new int[]{1,2}, new int[]{3,4});
-        assertEquals(result, 2.5D, 0.01D);
-    }
-
-    @Test
-    public void findMedianSortedArrays003() {
-        Solution004 solution = new Solution004();
-        double result = solution.findMedianSortedArrays(new int[]{}, new int[]{1});
-        assertEquals(result, 1.0D, 0.01D);
+    @ParameterizedTest
+    @MethodSource("provideParameters")
+    public void findMedianSortedArraysTest(int[] nums1, int[] nums2, double expectedMedian) {
+        double result = solution.findMedianSortedArrays(nums1, nums2);
+        assertEquals(result, expectedMedian, 0.01D);
     }
 }

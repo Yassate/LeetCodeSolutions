@@ -4,13 +4,6 @@ import java.util.HashMap;
 
 public class Solution003 {
 
-    public void testCase1(){
-        lengthOfLongestSubstring("pwwke");
-    }
-    public void testCase2(){
-        lengthOfLongestSubstring("dvxdfiae");
-    }
-
     public int lengthOfLongestSubstring(String str) {
         HashMap<Character, Integer> currentSubstring = new HashMap<>();
         HashMap<Character, Integer> longestSubstring = new HashMap<>();
