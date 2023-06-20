@@ -13,17 +13,6 @@ class Solution002Test {
 
     private Solution002 solution = new Solution002();
 
-    private static ListNode listNode(int[] digits) {
-        ListNode l1 = new ListNode();
-        ListNode output = l1;
-        for (int i = 0; i < digits.length; i++) {
-            l1.val = digits[i];
-            l1.next = new ListNode();
-            l1 = l1.next;
-        }
-        return output;
-    }
-
     private static boolean checkIfAreEqual(ListNode l1, ListNode l2) {
         ListNode localL1 = l1;
         ListNode localL2 = l2;
@@ -45,8 +34,6 @@ class Solution002Test {
     }
 
     private static Stream<Arguments> provideParameters() {
-        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
-        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
         return Stream.of(
                 Arguments.of(
                         new ListNode(2, new ListNode(4, new ListNode(3))),
