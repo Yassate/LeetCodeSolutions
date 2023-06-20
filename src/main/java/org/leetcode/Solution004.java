@@ -1,7 +1,5 @@
 package org.leetcode;
 
-import java.util.Arrays;
-
 public class Solution004 {
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
@@ -18,7 +16,6 @@ public class Solution004 {
                 result[i] = nums2[indexB++];
             }
         }
-
         return (concatenatedSize % 2 == 1) ? result[middleIndex] : (result[middleIndex] + result[middleIndex-1])/2D;
     }
 }
