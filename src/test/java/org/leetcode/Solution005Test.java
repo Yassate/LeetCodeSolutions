@@ -26,6 +26,6 @@ public class Solution005Test {
     @MethodSource("provideParameters")
     public void longestPalindromeTest(String input, String expectedPalindrome) {
         String result = solution.longestPalindrome(input);
-        assertEquals(result, expectedPalindrome);
+        assertEquals(expectedPalindrome, result);
     }
 }
