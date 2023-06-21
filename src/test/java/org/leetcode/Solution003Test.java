@@ -25,6 +25,6 @@ class Solution003Test {
     @MethodSource("provideParameters")
     void lengthOfLongestSubstringTest(String toCheck, int expectedSubstringLength) {
         int result = solution.lengthOfLongestSubstring(toCheck);
-        assertEquals(result, expectedSubstringLength);
+        assertEquals(expectedSubstringLength, result);
     }
 }

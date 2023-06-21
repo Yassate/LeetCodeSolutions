@@ -25,6 +25,6 @@ public class Solution004Test {
     @MethodSource("provideParameters")
     public void findMedianSortedArraysTest(int[] nums1, int[] nums2, double expectedMedian) {
         double result = solution.findMedianSortedArrays(nums1, nums2);
-        assertEquals(result, expectedMedian, 0.01D);
+        assertEquals(expectedMedian, result, 0.01D);
     }
 }
