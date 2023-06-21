@@ -18,7 +18,11 @@ public class Solution005Test {
                 Arguments.of("cbbd", "bb"),
                 Arguments.of("abba", "abba"),
                 Arguments.of("abcba", "abcba"),
-                Arguments.of("abcdedcba", "abcdedcba")
+                Arguments.of("abcdedcba", "abcdedcba"),
+                Arguments.of("a", "a"),
+                Arguments.of("ac", "a"),
+                Arguments.of("iptmykvjanwiihepqhzupneckpzomgvzmyoybzfynybpfybngttozprjbupciuinpzryritfmyxyppxigitnemanreexcpwscvcwddnfjswgprabdggbgcillisyoskdodzlpbltefiz", "illi"),
+                Arguments.of("aacabdkacaa", "aca")
         );
     }
 

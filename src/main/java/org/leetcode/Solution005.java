@@ -2,51 +2,44 @@ package org.leetcode;
 
 public class Solution005 {
 
-    private String reverseString(String str) {
-        byte[] strAsByteArray = str.getBytes();
-        byte[] result = new byte[strAsByteArray.length];
-
-        // Store result in reverse order into the
-        // result byte[]
-        for (int i = 0; i < strAsByteArray.length; i++)
-            result[i] = strAsByteArray[strAsByteArray.length - i - 1];
-        return new String(result);
-    }
-
     private boolean isPalindrome(String str) {
-        return str.equals(reverseString(str));
+        for (int i = 0; i < str.length(); i++){
+            if (str.charAt(str.length() - i - 1) != str.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
     }
-
-
 
     public String longestPalindrome(String str) {
+        String toReturn = str.substring(0,1);
         if (isPalindrome(str)) {
             return str;
         }
-        String sub;
-        String toCheck;
-        int currentSubstringLength = str.length()/2;
-        while(currentSubstringLength > 0) {
-            int lastIndex = str.length()-currentSubstringLength;
-            int lastStartIndex = lastIndex - currentSubstringLength + 1;
-            System.out.printf("lastIndex = %d%n", lastIndex);
-            for (int i = 0; i <= lastStartIndex; i++) {
-                sub = str.substring(i, i + currentSubstringLength);
-                if (i != lastStartIndex) {
-                    toCheck = sub + str.substring(i + currentSubstringLength, i + 2 * currentSubstringLength);
-                    if(isPalindrome(toCheck)) {
-                        return toCheck;
+        for (int currentSubstrLen = str.length()/2; currentSubstrLen > 0; currentSubstrLen--) {
+            int lastIdx = str.length()-currentSubstrLen;
+            int lastStartIdx = lastIdx - currentSubstrLen + 1;
+            for (int startIdx = 0; startIdx <= lastStartIdx; startIdx++) {
+                String substrAfter, toCheck1 = "", toCheck2 = "";
+                String substr = str.substring(startIdx, startIdx + currentSubstrLen);
+                if (startIdx != lastStartIdx) {
+                    substrAfter = str.substring(startIdx + currentSubstrLen, startIdx + 2 * currentSubstrLen);
+                    toCheck1 = substr + substrAfter;
+                    //System.out.println(String.format("substr = %s, substrAfter = %s, toCheck1 = %s, startIdx = %d, lastStartIdx = %d, currentSubstrLen = %d", substr, substrAfter, toCheck1, startIdx, lastStartIdx, currentSubstrLen));
+                    if(isPalindrome(toCheck1) && toCheck1.length() > toReturn.length()) {
+                        return toCheck1;
                     }
-                    System.out.printf("Sub = %s, toCheck = %s%n", sub, toCheck);
                 }
-                toCheck = sub.substring(0, sub.length()-1) + str.substring(i + currentSubstringLength - 1, i + 2 * currentSubstringLength-1);
-                if(isPalindrome(toCheck) && currentSubstringLength!=1) {
-                    return toCheck;
+                if (currentSubstrLen != 1) {
+                    substrAfter = str.substring(startIdx + currentSubstrLen, startIdx + 2 * currentSubstrLen-1);
+                    toCheck2 = substr + substrAfter;
+                    //System.out.println(String.format("substr = %s, substrAfter = %s, toCheck2 = %s, startIdx = %d, lastStartIdx = %d, currentSubstrLen = %d", substr, substrAfter, toCheck2, startIdx, lastStartIdx, currentSubstrLen));
+                    if(isPalindrome(toCheck2) && toCheck2.length() > toReturn.length()) {
+                        toReturn = toCheck2;
+                    }
                 }
-                System.out.printf("Sub = %s, toCheck = %s%n", sub, toCheck);
             }
-            currentSubstringLength--;
         }
-        return str;
+        return toReturn;
     }
 }
