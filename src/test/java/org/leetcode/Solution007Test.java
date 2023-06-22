@@ -15,8 +15,10 @@ class Solution007Test {
     private static Stream<Arguments> provideParameters() {
         return Stream.of(
                 Arguments.of(23, 32),
-                Arguments.of(-545, 545),
-                Arguments.of(120, 21)
+                Arguments.of(-541, -145),
+                Arguments.of(120, 21),
+                Arguments.of(1534236469, 0),
+                Arguments.of(-2147483648, 0)
         );
     }
 

@@ -1,6 +1,8 @@
 package org.leetcode;
 
 
+import java.math.BigInteger;
+
 public class Solution007 {
 
     private String reverseString(String str) {
@@ -11,9 +13,15 @@ public class Solution007 {
             result[i] = strAsByteArray[strAsByteArray.length - i - 1];
         return new String(result);
     }
+
+    private String strAbs(String number) {
+        return (number.charAt(0) == '-') ? number.substring(1) : number;
+    }
+
     public int reverse(int x) {
-        String valueX = String.format("%d", x);
-        System.out.println(String.format("InputStr = %s, reversed = %s", valueX, reverseString(valueX)));
-        return x;
+        String valueX = strAbs(String.valueOf(x));
+        String reversedX = (x>=0) ? reverseString(valueX) : "-" + reverseString(valueX);
+        long tempValue = Long.parseLong(reversedX);
+        return (Math.abs(tempValue) <= 2147483647) ? Integer.parseInt(reversedX) : 0;
     }
 }
