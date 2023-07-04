@@ -24,7 +24,7 @@ class Solution007Test {
 
     @ParameterizedTest
     @MethodSource("provideParameters")
-    void reverse(int input, int expected) {
+    void reverseTest(int input, int expected) {
         int result = solution.reverse(input);
         assertEquals(expected, result);
     }

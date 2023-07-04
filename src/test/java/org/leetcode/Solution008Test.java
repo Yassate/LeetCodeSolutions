@@ -8,24 +8,23 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class Solution007Test {
+class Solution008Test {
 
-    private Solution007 solution = new Solution007();
+    private Solution008 solution = new Solution008();
 
     private static Stream<Arguments> provideParameters() {
         return Stream.of(
-                Arguments.of(23, 32),
-                Arguments.of(-541, -145),
-                Arguments.of(120, 21),
-                Arguments.of(1534236469, 0),
-                Arguments.of(-2147483648, 0)
+                Arguments.of("42", 42),
+                Arguments.of("   -42", -42),
+                Arguments.of("4193 with words", 4193),
+                Arguments.of("-91283472332", -2147483648)
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideParameters")
-    void reverse(int input, int expected) {
-        int result = solution.reverse(input);
+    void myAtoiTest(String input, int expected) {
+        int result = solution.myAtoi(input);
         assertEquals(expected, result);
     }
 }
