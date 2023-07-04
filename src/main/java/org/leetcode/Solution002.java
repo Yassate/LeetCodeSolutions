@@ -20,11 +20,7 @@ class ListNode {
 }
 
 public class Solution002 {
-    public void testCase1(){
-        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
-        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
-        addTwoNumbers(l1,l2);
-    }
+//  https://leetcode.com/problems/add-two-numbers/
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode currentNode1 = l1;
